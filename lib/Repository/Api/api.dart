@@ -10,7 +10,7 @@ class AnimeApi {
   ApiClient apiClient = ApiClient();
 
   Future<Weather> getAnime(String text) async {
-    String trendingpath = 'https://forecast9.p.rapidapi.com/rapidapi/forecast/kochi/summary/';
+    String trendingpath = 'https://forecast9.p.rapidapi.com/rapidapi/forecast/$text/summary/';
     var body = {
     };
     Response response = await apiClient.invokeAPI(trendingpath, 'GET', body);

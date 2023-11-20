@@ -13,10 +13,10 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   late Weather Weather1;
   AnimeApi animeApi = AnimeApi();
   WeatherBloc() : super(WeatherInitial()) {
-    on<WeatherEvent>((event, emit) async {
+    on<FetchWeather>((event, emit) async {
       emit(WeatherLoading());
       try {
-        Weather1 = await animeApi.getAnime(event.toString());
+        Weather1 = await animeApi.getAnime(event.text);
         emit(WeatherLoaded());
       } catch (e) {
         print(e);
